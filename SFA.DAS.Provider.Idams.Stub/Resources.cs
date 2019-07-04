@@ -9,6 +9,7 @@ namespace SFA.DAS.Provider.Idams.Stub
         {
             return new List<IdentityResource> {
                 new IdentityResources.OpenId(),
+                new IdentityResources.Profile(),
                 new Custom.Resources.Idams(),
             };
         }

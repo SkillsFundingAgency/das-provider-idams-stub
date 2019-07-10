@@ -29,13 +29,13 @@ steps:
   displayName: 'dotnet restore'
   inputs:
     command: restore
-    projects: 'src/**/*.csproj'
+    projects: 'src/SFA.DAS.Provider.Idams.Stub.sln'
     noCache: true
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet restore'
   inputs:
-    projects: 'src/**/*.csproj'
+    projects: 'src/SFA.DAS.Provider.Idams.Stub.sln'
     arguments: '/p:Configuration=$(BuildConfiguration) --no-restore'
 
 - task: DotNetCoreCLI@2

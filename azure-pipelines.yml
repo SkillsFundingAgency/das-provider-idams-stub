@@ -1,4 +1,3 @@
-name: das-provider-idams-stub
 trigger:
   batch: true
   branches:
@@ -29,21 +28,20 @@ steps:
   displayName: 'dotnet restore'
   inputs:
     command: restore
-    projects: 'src/SFA.DAS.Provider.Idams.Stub.sln'
+    projects: 'src/**/*.csproj'
     noCache: true
 
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet restore'
+  displayName: 'dotnet build'
   inputs:
-    projects: 'src/SFA.DAS.Provider.Idams.Stub.sln'
+    projects: 'src/**/*.csproj'
     arguments: '/p:Configuration=$(BuildConfiguration) --no-restore'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet publish'
   inputs:
     command: publish
-    publishWebProjects: false
-    projects: 'src/SFA.DAS.Provider.Idams.Stub.sln'
+    publishWebProjects: true
     arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory) --no-restore --no-build'
 
 - task: CopyFiles@2

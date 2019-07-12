@@ -20,6 +20,12 @@
             "type": "string",
             "defaultValue": ""
         },
+        "sharedFrontEndAppServicePlanResourceGroup": {
+            "type": "string"            
+        },        
+        "sharedFrontEndAppServicePlanName": {
+            "type": "string"
+        },
         "configurationStorageConnectionString": {
             "type": "securestring"
         },
@@ -34,9 +40,6 @@
         },
         "loggingRedisKey": {
             "type": "securestring"
-        },
-        "sharedFrontEndAppServicePlanName": {
-            "type": "string"
         }
     },
     "variables": {
@@ -87,7 +90,7 @@
                         "value": "[parameters('sharedFrontEndAppServicePlanName')]"
                     },
                     "appServicePlanResourceGroup": {
-                        "value": "[resourceGroup().name]"
+                        "value": "[parameters('sharedFrontEndAppServicePlanResourceGroup')]"
                     },
                     "deployStagingSlot": {
                         "value": true

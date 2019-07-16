@@ -18,6 +18,7 @@ namespace SFA.DAS.Provider.Idams.Stub
                     AllowedScopes = new List<string>
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
                         Custom.Scopes.Idams
                     },
                     RedirectUris = new List<string> {"https://localhost:5001/signin-oidc", "https://127.0.0.1:44347/signin-oidc"},

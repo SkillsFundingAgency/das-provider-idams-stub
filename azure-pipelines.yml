@@ -12,6 +12,14 @@ workspace:
 variables:
   buildConfiguration: 'release'
 
+resources:
+  repositories:
+  - repository: das-platform-building-blocks
+    type: github
+    name: SkillsFundingAgency/das-platform-building-blocks
+    ref: refs/heads/master
+    endpoint: "GitHub (SFA)"
+
 pool:
   name: 'DAS - Continuous Integration'
 
@@ -33,6 +41,8 @@ steps:
   inputs:
     projects: 'src/**/*.csproj'
     arguments: '/p:Configuration=$(BuildConfiguration) --no-restore'
+
+- template: azure-pipelines-templates/dependency-check.yml@das-platform-building-blocks
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet publish'
